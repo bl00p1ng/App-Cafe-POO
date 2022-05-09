@@ -37,13 +37,21 @@ class View:
             makeOther = int(input('--> Quieres añadir otro producto (1 - SI | 2 - NO): '))
             makeOther = True if makeOther == 1 else False
 
-
         table = Table(tableName, products)
+        return table
 
 
     # READ
-    def read():
-        pass
+    def read(cafe):
+        """Mostrar las mesas con sus respectivos productos"""
+        print('********** MOSTRAR MESAS **********')
+
+        # Obtener las mesas
+        tables = cafe.getTables()
+
+        for table in tables:
+            table.showTable()
+
 
 
     # UPDATE
