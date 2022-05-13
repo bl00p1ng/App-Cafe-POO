@@ -6,6 +6,12 @@ class Cafe:
             self.__tables.append(table)
 
 
+    # Methods
+    def showTables(self):
+        for table in self.__tables:
+            table.showTable()
+
+
     # Getters
     def getTables(self):
         return self.__tables

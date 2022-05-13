@@ -1,5 +1,6 @@
 from ui.View import View as ui
 from model.Cafe import Cafe
+from model.Table import Table
 
 
 if __name__ == '__main__':
@@ -13,13 +14,17 @@ if __name__ == '__main__':
 
         # CREATE
         if userOption == 1:
-            table = ui.create()
+            # Obtener los datos para crear una mesa
+            tableName, products = ui.create()
+            # Crear una instancia de mesa
+            table = Table(tableName, products)
+            # Coleccionar las mesas creadas
             tables.append(table)
-
+            # Crear una instancia de Cafe con las mesas coleccionadas
+            cafe = Cafe(tables)
 
         # READ
         elif userOption == 2:
-            cafe = Cafe(tables)
             ui.read(cafe)
 
         # UPDATE

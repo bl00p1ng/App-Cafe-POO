@@ -1,6 +1,3 @@
-from model.Table import Table
-
-
 class View:
     def menu():
         print("""
@@ -17,6 +14,7 @@ class View:
         """)
         userOption = int(input('--> Ingresa una opción: '))
         return userOption
+
 
     def create():
         """Formulario para crear una mesa con sus respectivos productos"""
@@ -37,26 +35,29 @@ class View:
             makeOther = int(input('--> Quieres añadir otro producto (1 - SI | 2 - NO): '))
             makeOther = True if makeOther == 1 else False
 
-        table = Table(tableName, products)
-        return table
+        return (tableName, products)
 
 
     # READ
     def read(cafe):
         """Mostrar las mesas con sus respectivos productos"""
         print('********** MOSTRAR MESAS **********')
-
-        # Obtener las mesas
-        tables = cafe.getTables()
-
-        for table in tables:
-            table.showTable()
-
+        cafe.showTables()
 
 
     # UPDATE
-    def update():
-        pass
+    def update(cafe):
+        """Actualizar los datos de una mesa especifica"""
+        print('********** ACTUALIZAR MESA **********')
+
+
+        # Mostrar mesas guardadas
+        print(':: Mesas guardadas')
+        cafe.showTables()
+        
+        # Obtener la mesa a actualizar
+        tableToUpdate = input('--> Ingresa el nombre de la mesa a actualizar:')
+        return tableToUpdate
 
 
     # DELETE
