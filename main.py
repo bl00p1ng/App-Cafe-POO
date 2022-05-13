@@ -29,7 +29,11 @@ if __name__ == '__main__':
 
         # UPDATE
         elif userOption == 3:
-            ui.update()
+            # Obtener los nombres de las mesas
+            tableNames = cafe.getTableNames()
+            # Obtener la mesa a actualizar y sus productos nuevos
+            tableToUpdate, newProducts = ui.update(tableNames)
+            cafe.updateTable(tableToUpdate, newProducts)
 
         # DELETE
         elif userOption == 4:

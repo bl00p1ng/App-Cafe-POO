@@ -1,3 +1,6 @@
+from venv import create
+
+
 class View:
     def menu():
         print("""
@@ -46,18 +49,31 @@ class View:
 
 
     # UPDATE
-    def update(cafe):
+    def update(tableNames):
         """Actualizar los datos de una mesa especifica"""
-        print('********** ACTUALIZAR MESA **********')
+        print('********** ACTUALIZAR MESA **********')        
 
-
-        # Mostrar mesas guardadas
-        print(':: Mesas guardadas')
-        cafe.showTables()
+        print(':: Nombres de las mesas')
+        for tableName in tableNames:
+            print(f'* {tableName}')
         
         # Obtener la mesa a actualizar
-        tableToUpdate = input('--> Ingresa el nombre de la mesa a actualizar:')
-        return tableToUpdate
+        tableToUpdate = input('--> Ingresa el nombre de la mesa a actualizar: ')
+
+        # Obtener los productos nuevos de la mesa
+        newProducts = []
+        makeOther = True
+
+        print(':: Ingresa los productos actualizados\n')
+        while makeOther:
+            productName = input('--> Ingresa el nombre del producto: ')
+            price = int(input('--> Ingresa el precio del producto: '))
+            newProducts.append([productName, price])
+
+            makeOther = int(input('--> Quieres añadir otro producto (1 - SI | 2 - NO): '))
+            makeOther = True if makeOther == 1 else False
+        
+        return (tableToUpdate, newProducts)
 
 
     # DELETE

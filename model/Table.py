@@ -25,6 +25,15 @@ class Table:
         print(f"+{''.join(['-']) * (product.productLenght() + 5)}+")
 
 
+    def update(self, newProducts):
+        """Elimina los productos existentes y los actualiza con los productos nuevos"""
+        # Eliminar los productos que existian anteriormente
+        self.__products.clear()
+        # Reemplazar los productos anteriores por los productos nuevos
+        for product in newProducts:
+            self.__products.append(Product(name=product[0], price=product[1]))
+
+
     # Getters
     def getTableName(self):
         return self.__tableName
