@@ -77,5 +77,15 @@ class View:
 
 
     # DELETE
-    def delete():
-        pass
+    def delete(tableNames):
+        """Obtiene el nombre de la mesa a eliminar"""
+        print('********** ELIMINAR MESA **********')
+
+        print(':: Nombres de las mesas')
+        for tableName in tableNames:
+            print(f'* {tableName}')
+
+        # Obtener la mesa a actualizar
+        tableToDelete = input('--> Ingresa el nombre de la mesa a eliminar: ')        
+        
+        return tableToDelete

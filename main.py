@@ -37,7 +37,10 @@ if __name__ == '__main__':
 
         # DELETE
         elif userOption == 4:
-            ui.delete()
+            # Obtener los nombres de las mesas
+            tableNames = cafe.getTableNames()
+            tableToDelete = ui.delete(tableNames)
+            cafe.deleteTable(tableToDelete)
 
         # EXIT
         elif userOption == 0:

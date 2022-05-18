@@ -28,6 +28,13 @@ class Cafe:
                 table.update(newProducts)
 
 
+    def deleteTable(self, tableToDelete):
+        """Elimina una tabla en base a su nombre"""
+        for i, table in enumerate(self.__tables):
+            if table.getTableName() == tableToDelete:
+                self.__tables.pop(i)
+
+
     # Getters
     def getTables(self):
         return self.__tables
